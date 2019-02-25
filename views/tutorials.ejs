@@ -1,0 +1,36 @@
+<% include partials/header %>
+
+<div class="container">
+    
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Welcome to TechGrazer!</h1>
+            <p>We hope you learn a lot from our amazing tech tutorials (assuming there are any!)</p>
+            <p>
+                <a class='btn btn-primary btn-lg' href='/tutorials/new'>Create new tutorial</a>
+            </p>
+        </div>
+    </header>
+    
+    <div class='row'>
+        <div class='col-lg-12'>
+            Some of our most popular tutorials (or maybe our only ones!)
+        </div>
+    </div>
+    
+    <div class='row text-center' style='display:flex; flex-wrap: wrap'>
+        <% tutorials.forEach(function(tutorial){ %>
+            <div class='col-md-3 col-sm-6'>
+                <div class="thumbnail">
+                    <img src='<%= tutorial.image %>'>
+                    <div class='caption'>
+                        <h4><%=tutorial.title%></h4>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+        
+</div>
+    
+<% include partials/footer %>
