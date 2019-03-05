@@ -5,22 +5,22 @@
     <header class="jumbotron">
         <div class="container">
             <h1>Welcome to TechGrazer!</h1>
-            <p>We hope you learn a lot from our amazing tech tutorials (assuming there are any!)</p>
+            <p>We hope you learn a lot from our amazing tech articles (assuming there are any!)</p>
             <p>
-                <a class='btn btn-primary btn-lg' href='/tutorials/new'>Create new tutorial</a>
+                <a class='btn btn-primary btn-lg' href='/articles/new'>Create new article</a>
             </p>
         </div>
     </header>
     
     <div class='row text-center' style='display:flex; flex-wrap: wrap'>
-        <% tutorials.forEach(function(tutorial){ %>
+        <% articles.forEach(function(article){ %>
             <div class='col-md-3 col-sm-6'>
                 <div class="thumbnail">
-                    <img src='<%= tutorial.image %>'>
+                    <img src='<%= article.thumbnail %>'>
                     <div class='caption'>
-                        <h3><%= tutorial.title %></h3>
-                        <p><%= tutorial.description %></p>
-                        <p><a class="btn btn-success btn-sm" href="/tutorials/<%= tutorial._id %>">View tutorial</a></p>
+                        <h3><%= article.title %></h3>
+                        <p><%= article.summary %></p>
+                        <p><a class="btn btn-success btn-sm" href="/articles/<%= article._id %>">View article</a></p>
                     </div>
                 </div>
             </div>

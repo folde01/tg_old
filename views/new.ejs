@@ -3,29 +3,25 @@
 <div class="container">
 
     <div class='row'>
-        <h1 style="text-align: center;">Create a new tutorial</h1>
+        <h1 style="text-align: center;">Create a new article</h1>
         <div style='width: 30%; margin: 30px auto;'>
-            <form action='/tutorials' method="POST">
+            <form action='/articles' method="POST">
+
+                <label for="title">Article title</label>
                 <div class="form-group">
-                    <input class='form-control' type='text' placeholder="tutorial title" name="title">
+                    <input class='form-control' type='text' name="title">
                 </div>
+
+                <label for="title">Article folder name</label>
                 <div class="form-group">
-                    <input class='form-control' type='text' placeholder="creation date" name="date">
+                    <input class='form-control' type='text' name="folder">
                 </div>
-                <div class="form-group">
-                    <input class='form-control' type='text' placeholder="image filename" name="image">
-                </div>
-                <div class="form-group">
-                    <input class='form-control' type='text' placeholder="tutorial description" name="description">
-                </div>
-                <div class="form-group">
-                    <input class='form-control' type='text' placeholder="tutorial text" name="text">
-                </div>
+
                 <div class="form-group">
                     <button class='btn btn-primary btn-lg btn-default btn-block'>Submit</button>
                 </div>
             </form>
-            <a href='/tutorials'>Cancel</a>
+            <a href='/articles'>Cancel</a>
         </div>
     </div>
 </div>

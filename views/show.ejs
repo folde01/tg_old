@@ -1,13 +1,9 @@
 <% include partials/header %>
 
 <div class="container">
-    <h1><%= tutorial.title %></h1>
+    <h1><%= article.title %></h1>
 
-    <img src="images/<%= tutorial.image %>" alt="">
-
-    <p>
-        <%= tutorial.text %>
-    </p>
+    <%- include(article.indexPage); %>
 </div>
 
 <% include partials/footer %>
