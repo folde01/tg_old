@@ -1,12 +1,12 @@
 'use strict';
 /*jshint esversion: 6 */
 
-var express = require('express'),
+const express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     fs = require('fs'),
-    articles_dir = 'Articles';
+    articles_dir = './views/Articles';
 
 const mongo_url = 'mongodb://localhost:27017/techgrazer';
 mongoose.connect(mongo_url, {useNewUrlParser: true});
@@ -55,10 +55,13 @@ app.post('/articles', function(req, res) {
         // Todo: make mkdir asynchronous and handle errors
         
         const article_dir = articles_dir + '/' + newArticle.folder;
+
         if (!fs.existsSync(article_dir)) {
             fs.mkdirSync(article_dir);
         }
-        
+
+        // fs.writeFileSync(article_dir + '/article.ejs');
+        fs.copyFileSync(articles_dir + '/template.ejs', article_dir + '/article.ejs');
         
         res.redirect('/articles');
     });
@@ -70,7 +73,9 @@ app.get('/articles/:id', function(req, res){
             console.log(err);
         }
         foundArticle.indexPage = '../' + articles_dir + '/' + foundArticle.folder + '/index.html';
-        res.render('show', {article: foundArticle});
+        //res.render('show', {article: foundArticle});
+
+        res.render('Articles/' + foundArticle.folder + '/article');
     });
 });
 
